@@ -1,6 +1,6 @@
 #include<stdio.h>
 /*
-AFD para identificadores da linguagem C
+AFD para reconhecer endereços de E-mail
 @author: Gabriel Vinícius Souto Abreu
 */
 int isAlpha(char simbolo)

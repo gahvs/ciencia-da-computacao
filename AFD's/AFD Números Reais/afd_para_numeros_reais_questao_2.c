@@ -1,6 +1,6 @@
 #include <stdio.h>
 /*
-AFD para identificadores da linguagem C
+AFD para Números Inteiros e Reias
 @author: Gabriel Vinícius Souto Abreu
 */
 int isDigit(char simbolo)
