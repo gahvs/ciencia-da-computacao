@@ -1,7 +1,6 @@
 #include<stdio.h>
 #include<windows.h>
 #define len 10
-
 void plot(int array[])
 {
     int i, j;
@@ -30,20 +29,24 @@ void print(int array[])
     printf("]\n");
 }
 
-int selecao(int array[])
+int buble_sort(int array[])
 {
-    //Complexidade O(N^2) em todos os casos
-    int i, g=0;
-    for(i=0; i<len; i++, g++)
+    //O(n) no melhor caso
+    //O(n^2) no pior caso
+    int i, j, swap = 1, aux, g=0;
+    for(i=len-1; i>=0 && swap; i--, g++)
     {
-        int min = i, temp, j;
-        for(j=i+1; j<len; j++, g++)
-            if(array[j] < array[min]) min = j;
-        temp = array[i]; array[i] = array[min]; array[min] = temp;
-
-        draw(array, g);
+        swap = 0;
+        for(j=0; j<i; j++, g++)
+        {
+            if(array[j] > array[j+1])
+            {
+                aux = array[j], array[j] = array[j+1], array[j+1] = aux, swap = 1;
+            }
+            draw(array, g);
+        }
     }
-    return g;
+    return g; //returns iterations only presentation
 }
 
 int main()
@@ -51,8 +54,10 @@ int main()
     int array[len] = {4, 2, 8, 5, 9, 1, 10, 3, 6, 7};
     int _[len] = {4, 2, 8, 5, 9, 1, 10, 3, 6, 7};
 
-    int iter = selecao(array);
+    int iter = buble_sort(array);
     draw(array, iter);
     printf("before: ");print(_);
     printf("after : ");print(array);
 }
+
+
