@@ -19,7 +19,7 @@ int sequential_search(int array[], int value)
     while(array[i]!=value)
         i++;
     printf("Sequential Search iterations: %d\n", i);
-    if((i==len || i == 0) && i == len) return -1;
+    if(array[i] != i) return -1;
     return i;
 }
 
@@ -35,7 +35,7 @@ int binary_search(int array[], int value)
         i++;
     }
     printf("Binary Search Iterations: %d\n", i);
-    if((r ==len || r == 0) && value != array[r]) return -1; //this function returns the len of array or 0 if the elemente don't exists in the same, this if solve this;
+    if(value != array[r]) return -1; //this function returns the len of array or 0 if the elemente don't exists in the same, this if solve this;
     return r;
 }
 
@@ -44,7 +44,7 @@ int main()
     int array[len], i;
     getData(array);
 
-    int search = 999;
+    int search = -2;
     int bIndex = binary_search(array, search);
     int sIndex = sequential_search(array, search);
     printf("\n\nIndex of %d: %d\n", search, bIndex);
