@@ -18,8 +18,8 @@ void plot(int array[])
 void draw(int array[], int iterations)
 {
     plot(array); //only presentation
-    printf("iteration: %d\n", iterations); //only presentation
-    Sleep(280);system("cls"); //only presentation
+    printf("iterations: %d\n", iterations); //only presentation
+    Sleep(280); //only presentation
 }
 
 void print(int array[])
@@ -41,7 +41,7 @@ int selecao(int array[])
             if(array[j] < array[min]) min = j;
         temp = array[i]; array[i] = array[min]; array[min] = temp;
 
-        draw(array, g);
+        draw(array, g);system("cls");
     }
     return g;
 }
