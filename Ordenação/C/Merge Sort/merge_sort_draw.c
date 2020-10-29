@@ -60,7 +60,7 @@ void merge(int s, int m, int e, int array[])
 void mergesort(int s, int e, int array[])
 {
     //s = start | e = end
-    //Complexidade O(n log) em qualquer caso
+    //Complexidade O(n log n) em qualquer caso
     if(s < e-1)
     {
         draw(array);system("cls");
