@@ -1,6 +1,8 @@
 #include<stdio.h>
 #define len 11
 
+//RECEBE UM VETOR E INVERTE A ORDEM DE SEUS ELEMENTOS
+
 void print(int array[])
 {
     int i;printf("[ ");
