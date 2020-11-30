@@ -1,0 +1,27 @@
+Uma cliente compra algumas roupas para sua família em uma loja. Chegando em casa descobre que algumas
+não serviram e volta a loja para pedir a devolução (apenas dos itens que não serviram).
+
+O vendedor diz: 
+	- Eu multipliquei o valor da devolução e deu R$ 7, 11
+A cliente irritada diz:
+	-Multiplicou? Você deveria ter somado.
+O vendedor se desculpa, realiza a soma e então surpreso diz:
+	-A soma também deu R$ 7, 11
+
+Sabendo que essa é nota fiscal da compra:
+	Blusa 1,10
+	Camisa 1, 20
+	Calça 1,25
+	Casaco 1,41
+	Blusão 1,50
+	Jeans 1,63
+	Jaqueta 2,05
+	Macacão 2,22
+	Saia 2,65
+	Saruel 2,90
+	Short 3,04
+	Suéter 3,16
+
+Quais foram os produtos devolvidos?
+Solução:
+0    1    1    0    1    0    0    0    0     0     0     1
