@@ -41,7 +41,7 @@ class Matrix:
     
     @staticmethod
     def transpose(matrix):
-        transpose = Matrix(matrix.rows, matrix.cols)
+        transpose = Matrix(matrix.cols, matrix.rows)
         for i in range(matrix.rows):
             for j in range(matrix.cols):
                 transpose.matrix[j][i] = matrix.matrix[i][j]
@@ -68,7 +68,7 @@ class Matrix:
         result = Matrix(matrixA.rows, matrixB.cols)
         for i in range(matrixA.rows):
             for j in range(matrixB.cols):
-                result.matrix[i][j] = matrixA[i][j] * matrixB[i][j]
+                result.matrix[i][j] = matrixA.matrix[i][j] * matrixB.matrix[i][j]
         return result
     
     @staticmethod
