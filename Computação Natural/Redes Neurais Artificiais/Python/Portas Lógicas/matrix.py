@@ -84,10 +84,10 @@ class Matrix:
         def acc(_e, __e): return _e + __e
         result = Matrix(matrixA.rows, matrixB.cols)
 
-        for row in matrixA.matrix:
-            k = matrixA.matrix.index(row)
+        for j in range(len(matrixA.matrix)):
+            row = matrixA.matrix[j]
             for i in range(matrixB.cols):
                 col = getColumn(matrixB, i)
                 mults = [a * b for a, b in zip(row, col)]
-                result.matrix[k][i] = reduce(acc, mults)
+                result.matrix[j][i] = reduce(acc, mults)
         return result
