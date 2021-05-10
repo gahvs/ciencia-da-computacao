@@ -1,0 +1,18 @@
+O problema consiste em:
+
+Dado um conjunto de produtos com preços, volume e estoque
+e um contêiner com capacidade definida:
+
+Estabelecer quais produtos devem ser colocados no contêiner de modo a maximizar o valor 
+total de itens dentro da capacidade máxima do contêiner;
+
+Representação da solução:
+
+O número de produtos é variável (o limite é o espaço ocupado por eles)
+Podem existir produtos repetidos (respeitando o estoque de cada produto)
+
+Diante disso a Representação da solução é:
+
+Um vetor de tamanho n, sendo n a quantidade total de produtos existentes
+onde cada posição i do vetor, contém um número natural que indica quantas unidades
+daquele produto serão colocadas no contêiner.
