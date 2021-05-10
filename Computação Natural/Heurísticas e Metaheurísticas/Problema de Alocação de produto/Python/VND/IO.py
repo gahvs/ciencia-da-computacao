@@ -14,7 +14,7 @@ class IO:
         return len(self.__data)
 
     def load(self):
-        path = os.path.join(self.__base_dir, 'myHeuristhic\\dados\\produtos.csv')
+        path = os.path.join(self.__base_dir, 'VND\\dados\\produtos.csv')
         with open(path) as csv_file:
             csv_reader = csv.reader(csv_file, delimiter=';')
             for product in csv_reader:
