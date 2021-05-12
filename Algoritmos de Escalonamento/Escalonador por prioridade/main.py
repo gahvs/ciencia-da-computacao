@@ -8,18 +8,18 @@ from time import sleep
     Implementation of the priority scheduling algorithm.
     The algorithm is preemptive and solves the starvation problem with
     the agging technique.
-
 '''
 manager = ProcessScheduler()
+manager.start()
 
 # this configuration generates a starvation problem:
 manager.addProcess([Process(
     priority=1,
     quantum=5,
-    lifetime=5
+    lifetime=10
 )])
 
-manager.start()
+
 
 sleep(.1)
 
