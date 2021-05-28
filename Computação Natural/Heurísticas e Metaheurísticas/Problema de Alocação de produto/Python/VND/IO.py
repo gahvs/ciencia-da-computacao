@@ -13,8 +13,8 @@ class IO:
     def getProductsQuantity(self):
         return len(self.__data)
 
-    def load(self):
-        path = os.path.join(self.__base_dir, 'VND\\dados\\produtos.csv')
+    def load(self, filename):
+        path = os.path.join(self.__base_dir, 'VND\\dados\\'+filename)
         with open(path) as csv_file:
             csv_reader = csv.reader(csv_file, delimiter=';')
             for product in csv_reader:

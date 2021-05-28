@@ -1,9 +1,11 @@
 from VND import VND
 
 vnd = VND(
-    container_capacity= 500,
+    filename='produtos.csv',
+    container_capacity=500,
+    vnd_method=2
 )
 
-bestSolution = vnd.vndMethod(iterations=5000, neighborhoodSize=30)
-print(vnd.calculateSolutionValue(bestSolution))
-print(vnd.calculateSolutionVolume(bestSolution))
+bestSolution = vnd.run(iterations=5000, neighborhoodSize=30)
+print('\n\nBest Value:',vnd.calculateSolutionValue(bestSolution))
+print('Volume:',vnd.calculateSolutionVolume(bestSolution))

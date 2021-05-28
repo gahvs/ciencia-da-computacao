@@ -8,14 +8,15 @@ reduceAdder = lambda v, v_ : v + v_
 
 class VND(Structures):
 
-    def __init__(self, container_capacity):
-        self.__data = VND._loadData()
+    def __init__(self, filename, container_capacity, vnd_method):
+        self.__vnd_method = vnd_method
+        self.__data = VND._loadData(filename)
         self.__container_capacity = container_capacity
 
     @classmethod
-    def _loadData(cls):
+    def _loadData(cls, filename):
         io = IO()
-        io.load()
+        io.load(filename)
         return io.getData()
 
     def generateInitialSolution(self):
@@ -56,8 +57,14 @@ class VND(Structures):
                 return neighbor
         
         return currentSolution
+    
+    def run(self, iterations, neighborhoodSize):
+        if self.__vnd_method == 1: 
+            return self.__vndMethod1(iterations, neighborhoodSize)
+        else: 
+            return self.__vndMethod2(iterations, neighborhoodSize)
 
-    def vndMethod(self, iterations, neighborhoodSize):
+    def __vndMethod1(self, iterations, neighborhoodSize):
         copy = iterations
         solution = self.generateInitialSolution()
         bestValue = self.calculateSolutionValue(solution)
@@ -99,6 +106,66 @@ class VND(Structures):
             elif k == 7:
                 neighborhood = [self.NS4(solution, self.__data, 3) for _ in range(neighborhoodSize)]
                 neighbor = self.firstImprovementMethod(solution, neighborhood)
+                
+            
+            neighborValue = self.calculateSolutionValue(neighbor)
+            neighborIsFeasible = self.solutionIsFeasible(neighbor)
+            solutionIsFeasible = self.solutionIsFeasible(solution)
+
+            if neighborValue > bestValue and neighborIsFeasible:
+                solution = deepcopy(neighbor)
+                bestValue = neighborValue
+                iterations = copy
+                k = 0
+                print('improvement', bestValue)
+            
+            elif neighborValue < bestValue and neighborIsFeasible and not solutionIsFeasible:
+                solution = deepcopy(neighbor)
+                bestValue = neighborValue
+                iterations = copy
+                k = 0
+                print('improvement', bestValue)
+            
+            else:
+                k += 1
+                iterations -= 1
+
+        return solution
+    
+    def __vndMethod2(self, iterations, neighborhoodSize):
+        copy = iterations
+        solution = self.generateInitialSolution()
+        bestValue = self.calculateSolutionValue(solution)
+        neighbor = list()
+
+        print('Initial value:', bestValue)
+        
+        k = int()
+        while iterations:
+
+            if k == 0:
+                neighbor = self.NS1(solution, 2)
+
+            elif k == 1:
+                neighbor = self.NS1(solution, 3)
+                
+            elif k == 2:
+                neighbor = self.NS2(solution, self.__data, 2)
+                
+            elif k == 3:
+                neighbor = self.NS2(solution, self.__data, 3)
+                
+            elif k == 4:
+                neighbor = self.NS3(solution, self.__data, 3)
+                
+            elif k == 5:
+                neighbor = self.NS3(solution, self.__data, 3)
+                
+            elif k == 6:
+                neighbor = self.NS4(solution, self.__data, 3)
+                
+            elif k == 7:
+                neighbor = self.NS4(solution, self.__data, 3)
                 
             
             neighborValue = self.calculateSolutionValue(neighbor)
