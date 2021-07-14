@@ -70,3 +70,10 @@ class Vector:
             q is vector[q] for each q in vectorPart
         """
         return tuple(filter(lambda c: c is not None, [self.component(q) for q in vectorPart]))
+
+    def isNull(self) -> bool:
+        """
+            Checks whether the vector is null. 
+            A vector is null if x[n] = 0 for all n in vector.indexes.
+        """
+        return all(tuple(map(lambda n: n == 0, self.numbers())))
