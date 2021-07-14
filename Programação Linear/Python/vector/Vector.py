@@ -63,9 +63,9 @@ class Vector:
         """
         return self.__vector[index] if index in self.__vector else None
     
-    def restriction(self, vectorPart):
+    def restriction(self, vectorPart) -> tuple:
         """
-            Returns a vector. If vectorPart is a part of vector.indexes then x[vectorPart]
+            Returns a vectors values. If vectorPart is a part of vector.indexes then x[vectorPart]
             denotes the restriction of x to vectorPart, that is, the vector whose component
             q is vector[q] for each q in vectorPart
         """
