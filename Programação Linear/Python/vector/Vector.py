@@ -76,4 +76,4 @@ class Vector:
             Checks whether the vector is null. 
             A vector is null if x[n] = 0 for all n in vector.indexes.
         """
-        return all(tuple(map(lambda n: n == 0, self.numbers())))
+        return all(map(lambda n: n == 0, self.numbers()))
