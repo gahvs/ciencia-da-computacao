@@ -1,4 +1,4 @@
-from typing import Any
+from functools import reduce
 
 class VectorComponent:
 
@@ -30,7 +30,10 @@ class Vector:
     def __init__(self) -> None:
         self.__vector = dict()
 
-    def add(self, component):
+    def add(self, component) -> None:
+        """
+            Adds a component to the vector. The parameter must be an instance of VectorComponent()
+        """
         try:
             if not isinstance(component, VectorComponent):
                 raise TypeError
@@ -39,6 +42,12 @@ class Vector:
         except TypeError:
             pass
     
+    def change(self, index, number) -> None:
+        """
+            Change the value of vector[n] if n exists in vector.indexes
+        """
+        if index in self.__vector: self.__vector[index] = number
+
     def vector(self) -> dict:
         """
             Returns the vector, in a dictionary {index: value}
@@ -57,7 +66,7 @@ class Vector:
         """
         return tuple(self.__vector.values())
     
-    def component(self, index) -> Any or None:
+    def component(self, index):
         """
             Returns the value corresponding to the index, or None if it does not exist
         """
@@ -144,3 +153,12 @@ class Vector:
         """
         v_x, v_y = vec_x.vector(), vec_y.vector()
         return all(map(lambda k: v_x[k] <= v_y[k], vec_x.indexes()))
+
+    @staticmethod
+    def product(vec_x, vec_y) -> bool:
+        """
+            Retorna o produto dado por vec_x[n] * vec_y[n] para todo n in vec_x.indexes.
+            This operations only makes sense if both vectors are defined on the same set of indices.
+        """
+        v_x, v_y = vec_x.vector(), vec_y.vector()
+        return reduce(lambda v, v_ : v + v_, [v_x[k] * v_y[k] for k in vec_x.indexes()])
