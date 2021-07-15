@@ -155,7 +155,7 @@ class Vector:
         return all(map(lambda k: v_x[k] <= v_y[k], vec_x.indexes()))
 
     @staticmethod
-    def product(vec_x, vec_y) -> bool:
+    def product(vec_x, vec_y):
         """
             Returns the product given by vec_x[n] * vec_y[n] for all n in vec_x.indexes.
             This operations only makes sense if both vectors are defined on the same set of indices.
