@@ -157,7 +157,7 @@ class Vector:
     @staticmethod
     def product(vec_x, vec_y) -> bool:
         """
-            Retorna o produto dado por vec_x[n] * vec_y[n] para todo n in vec_x.indexes.
+            Returns the product given by vec_x[n] * vec_y[n] for all n in vec_x.indexes.
             This operations only makes sense if both vectors are defined on the same set of indices.
         """
         v_x, v_y = vec_x.vector(), vec_y.vector()
