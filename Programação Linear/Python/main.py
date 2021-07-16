@@ -8,6 +8,7 @@ matriz.add(component=MatrixComponent(row=1, col=2, number=2))
 matriz.add(component=MatrixComponent(row=1, col=3, number=3))
 matriz.add(component=MatrixComponent(row=4, col=2, number=2))
 
-restriction = matriz.restriction(rowPart=",", colPart=",")
+restriction = matriz.numbers(rowPart=[4], colPart=",")
 
-print(restriction.component())
+print(restriction)
+print(matriz.matrix()[4])

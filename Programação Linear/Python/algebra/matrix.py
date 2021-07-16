@@ -26,6 +26,13 @@ class Matrix:
         self.__cols = list()
         self.__matrix = dict()
     
+    def __updateRowColList(self, row, col):
+        """
+            Add the row and column to their respective lists if they do not already contain them.
+        """
+        if not row in self.__rows: self.__rows.append(row)
+        if not col in self.__cols: self.__cols.append(col)
+
     def __fill(self) -> None:
         """
             When a new column is added this method is called. 
@@ -53,8 +60,7 @@ class Matrix:
                 else:
                     self.__matrix[component.row] = dict()
                 
-                self.__rows.append(component.row)
-                self.__cols.append(component.col)
+                self.__updateRowColList(row=component.row, col=component.col)
                 self.__matrix[component.row][component.col] = component.number
                 self.__fill()
 
@@ -75,6 +81,15 @@ class Matrix:
             Returns the matrix in a dict {row: {col: number}}
         """
         return self.__matrix
+
+    def numbers(self, rowPart, colPart):
+        """
+            Returns a list of values ​​only from the array defined on rowPart and colPart.
+            When you want the part to be the whole, rowPart or colPart must be ","
+        """
+        if rowPart == ",": rowPart = self.__rows[:]
+        if colPart == ",": colPart = self.__cols[:]
+        return [[ self.__matrix[row][col] for col in colPart] for row in rowPart]
 
     def component(self, row, col):
         """
