@@ -1,17 +1,13 @@
-from algebra.vector import VectorComponent, Vector
+from algebra.matrix import Matrix, MatrixComponent
 
-vector = Vector()
-vector2 = Vector()
+matriz = Matrix()
+matriz.add(component=MatrixComponent(row=1, col=1, number=1))
+matriz.add(component=MatrixComponent(row=2, col=1, number=1))
+matriz.add(component=MatrixComponent(row=3, col=1, number=1))
+matriz.add(component=MatrixComponent(row=1, col=2, number=2))
+matriz.add(component=MatrixComponent(row=1, col=3, number=3))
+matriz.add(component=MatrixComponent(row=4, col=2, number=2))
 
-vector.add(VectorComponent(1, 2))
-vector.add(VectorComponent(2, 3))
-vector.add(VectorComponent(3, 4))
+restriction = matriz.restriction(rowPart=",", colPart=",")
 
-vector2.add(VectorComponent(1, 2))
-vector2.add(VectorComponent(2, 3))
-vector2.add(VectorComponent(3, 4))
-
-print(vector.vector())
-print(vector2.vector())
-
-print(Vector.product(vector, vector2))
+print(restriction.component())
