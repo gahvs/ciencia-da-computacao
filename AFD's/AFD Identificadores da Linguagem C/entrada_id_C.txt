@@ -1,0 +1,13 @@
+abc123
+_abc_
+123abc
+x
+x@
+abc-def
+-abc
+A_b_C
+a1b2c3
+work
+xy!z
+__xyz
+xyz___1
